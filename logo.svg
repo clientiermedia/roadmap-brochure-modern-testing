@@ -1,0 +1,17 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Boomerang symbol -->
+  <g transform="translate(10, 20)">
+    <!-- Pink boomerang shape -->
+    <path d="M5 20 Q15 5 25 15 Q35 25 25 35 Q15 45 5 30 Q-5 20 5 20 Z" fill="#fe0158"/>
+    <!-- Blue boomerang shape -->
+    <path d="M15 10 Q25 -5 35 5 Q45 15 35 25 Q25 35 15 20 Q5 10 15 10 Z" fill="#342793"/>
+  </g>
+  
+  <!-- Boomerang text -->
+  <text x="60" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#342793">Boomerang</text>
+  
+  <!-- Business Collective text -->
+  <text x="60" y="55" font-family="Arial, sans-serif" font-size="14" fill="#342793">
+    <tspan fill="#fe0158">></tspan> Business Collective
+  </text>
+</svg> 
