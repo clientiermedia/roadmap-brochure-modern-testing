@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localizedTexts.forEach(element => {
             const text = element.dataset[lang];
             if (text) {
-                element.textContent = text;
+                element.innerHTML = text;
             }
         });
         
@@ -213,7 +213,7 @@ function setLanguage(lang) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.value = text;
             } else {
-                element.textContent = text;
+                element.innerHTML = text;
             }
         }
     });

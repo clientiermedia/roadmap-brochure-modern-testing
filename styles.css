@@ -492,6 +492,11 @@ nav ul li a:hover::after {
     color: var(--text-color);
 }
 
+.highlight {
+    color: #fe0158;
+    text-shadow: 0 0 8px rgba(254, 1, 88, 0.7);
+}
+
 .contact-info {
     display: flex;
     flex-direction: column;
