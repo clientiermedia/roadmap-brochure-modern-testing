@@ -192,6 +192,107 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Roadmap navigation functionality
+    function initRoadmapNavigation() {
+        const roadmapCircles = document.querySelectorAll('.roadmap-bar li');
+        const videoContainers = document.querySelectorAll('.video-container');
+        
+        function scrollToStep(stepNumber) {
+            const targetContainer = videoContainers[stepNumber - 1];
+            if (targetContainer) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetContainer.offsetTop - headerHeight - 40;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Add visual feedback with enhanced animations
+                targetContainer.style.transform = 'scale(1.02)';
+                
+                // Trigger hover effects
+                targetContainer.classList.add('force-hover');
+                
+                // Show progress indicator with animation
+                const progressIndicator = targetContainer.querySelector('.progress-indicator');
+                if (progressIndicator) {
+                    progressIndicator.style.opacity = '1';
+                    progressIndicator.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+                    progressIndicator.style.animation = 'progressPulse 2s ease-in-out infinite';
+                }
+                
+                // Trigger iframe hover effect
+                const iframe = targetContainer.querySelector('iframe');
+                if (iframe) {
+                    iframe.style.transform = 'scale(1.02)';
+                    iframe.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
+                }
+                
+                // Reset effects after animation
+                setTimeout(() => {
+                    targetContainer.style.transform = '';
+                    targetContainer.classList.remove('force-hover');
+                    
+                    if (progressIndicator) {
+                        progressIndicator.style.opacity = '';
+                        progressIndicator.style.transform = '';
+                        progressIndicator.style.animation = '';
+                    }
+                    
+                    if (iframe) {
+                        iframe.style.transform = '';
+                        iframe.style.boxShadow = '';
+                    }
+                }, 3000); // Keep effects for 3 seconds
+            }
+        }
+        
+        // Add click event listeners
+        roadmapCircles.forEach((circle, index) => {
+            circle.addEventListener('click', () => {
+                scrollToStep(index + 1);
+            });
+            
+            // Add keyboard support
+            circle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    scrollToStep(index + 1);
+                }
+            });
+        });
+    }
+    
+    // Initialize roadmap navigation
+    initRoadmapNavigation();
+    
+    // Wavy line animation on scroll
+    function initWavyLineAnimation() {
+        const roadmapBar = document.querySelector('.roadmap-bar');
+        
+        if (roadmapBar) {
+            const lineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add class to trigger animation
+                        entry.target.classList.add('animate-line');
+                        // Stop observing once animated
+                        lineObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            lineObserver.observe(roadmapBar);
+        }
+    }
+    
+    // Initialize wavy line animation
+    initWavyLineAnimation();
+    
     // Performance monitoring (optional - can be removed in production)
     if (typeof performance !== 'undefined' && performance.mark) {
         performance.mark('script-start');
