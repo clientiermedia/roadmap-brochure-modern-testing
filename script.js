@@ -198,10 +198,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const videoContainers = document.querySelectorAll('.video-container');
         
         function scrollToStep(stepNumber) {
-            const targetContainer = videoContainers[stepNumber - 1];
-            if (targetContainer) {
+            // Find the video container with the matching number indicator
+            const targetContainer = document.querySelector(`.video-container .number-indicator:nth-child(1)`);
+            const allContainers = document.querySelectorAll('.video-container');
+            let matchingContainer = null;
+            
+            // Find the container with the matching step number
+            allContainers.forEach(container => {
+                const numberIndicator = container.querySelector('.number-indicator');
+                if (numberIndicator && numberIndicator.textContent.trim() === stepNumber.toString()) {
+                    matchingContainer = container;
+                }
+            });
+            
+            if (matchingContainer) {
                 const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetContainer.offsetTop - headerHeight - 40;
+                const windowHeight = window.innerHeight;
+                
+                // Get the absolute position of the container from the top of the document
+                const containerRect = matchingContainer.getBoundingClientRect();
+                const currentScrollY = window.scrollY;
+                const containerAbsoluteTop = containerRect.top + currentScrollY;
+                
+                // Position the container in the center of the viewport
+                const viewportOffset = windowHeight * 0.5; // 50% from top of viewport
+                const targetPosition = containerAbsoluteTop - headerHeight - viewportOffset;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -209,13 +230,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Add visual feedback with enhanced animations
-                targetContainer.style.transform = 'scale(1.02)';
+                matchingContainer.style.transform = 'scale(1.02)';
                 
                 // Trigger hover effects
-                targetContainer.classList.add('force-hover');
+                matchingContainer.classList.add('force-hover');
                 
                 // Show progress indicator with animation
-                const progressIndicator = targetContainer.querySelector('.progress-indicator');
+                const progressIndicator = matchingContainer.querySelector('.progress-indicator');
                 if (progressIndicator) {
                     progressIndicator.style.opacity = '1';
                     progressIndicator.style.transform = 'translateX(-50%) translateY(0) scale(1)';
@@ -223,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Trigger iframe hover effect
-                const iframe = targetContainer.querySelector('iframe');
+                const iframe = matchingContainer.querySelector('iframe');
                 if (iframe) {
                     iframe.style.transform = 'scale(1.02)';
                     iframe.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
@@ -231,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset effects after animation
                 setTimeout(() => {
-                    targetContainer.style.transform = '';
-                    targetContainer.classList.remove('force-hover');
+                    matchingContainer.style.transform = '';
+                    matchingContainer.classList.remove('force-hover');
                     
                     if (progressIndicator) {
                         progressIndicator.style.opacity = '';
@@ -266,6 +287,79 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize roadmap navigation
     initRoadmapNavigation();
+    
+    // Step 1 video modal functionality
+    function initStep1VideoModal() {
+        const step1VideoWrapper = document.querySelector('.step-1-window .step-video-wrapper');
+        
+        if (step1VideoWrapper) {
+            step1VideoWrapper.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const iframe = step1VideoWrapper.querySelector('iframe');
+                if (iframe) {
+                    const videoSrc = iframe.src;
+                    openVideoModal(videoSrc);
+                }
+            });
+        }
+    }
+
+    // Video modal functions
+    function openVideoModal(videoSrc) {
+        let videoModal = document.getElementById('videoModal');
+        
+        // Create modal if it doesn't exist
+        if (!videoModal) {
+            videoModal = document.createElement('div');
+            videoModal.id = 'videoModal';
+            videoModal.className = 'video-modal';
+            videoModal.innerHTML = `
+                <div class="video-modal-content">
+                    <button class="modal-close" onclick="closeVideoModal()">&times;</button>
+                    <iframe id="modalVideo" src="" allowfullscreen allow="encrypted-media; fullscreen;"></iframe>
+                </div>
+            `;
+            document.body.appendChild(videoModal);
+        }
+        
+        const modalVideo = document.getElementById('modalVideo');
+        if (modalVideo) {
+            modalVideo.src = videoSrc;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Close video modal function (global)
+    window.closeVideoModal = function() {
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        
+        if (videoModal && modalVideo) {
+            videoModal.classList.remove('active');
+            modalVideo.src = '';
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Initialize step 1 video modal
+    initStep1VideoModal();
+    
+    // Close modal on backdrop click and escape key
+    document.addEventListener('click', (e) => {
+        const videoModal = document.getElementById('videoModal');
+        if (videoModal && e.target === videoModal) {
+            closeVideoModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeVideoModal();
+        }
+    });
     
     // Wavy line animation on scroll
     function initWavyLineAnimation() {

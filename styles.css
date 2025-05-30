@@ -210,7 +210,7 @@ nav ul li a:hover::after {
 .hero .container {
     position: relative;
     z-index: 2;
-    padding-bottom: 120px;
+    padding-bottom: 310px;
 }
 
 .hero-title {
@@ -265,7 +265,7 @@ nav ul li a:hover::after {
     height: 50px;
     z-index: 1;
     transform: translateY(-50%);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='2.5' fill='none' filter='url(%23glow)' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     animation: drawEnhancedWavyLine 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -296,14 +296,14 @@ nav ul li a:hover::after {
 @keyframes drawEnhancedWavyLine {
     0% {
         opacity: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='2.5' fill='none' filter='url(%23glow)' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' filter='url(%23glow)' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
     }
     10% {
         opacity: 1;
     }
     100% {
         opacity: 1;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='2.5' fill='none' filter='url(%23glow)' stroke-dasharray='2000' stroke-dashoffset='0'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' stroke-dasharray='2000' stroke-dashoffset='0'/%3E%3C/svg%3E");
     }
 }
 
@@ -449,6 +449,11 @@ nav ul li a:hover::after {
     box-shadow: var(--shadow-light);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+}
+
+/* Only apply top margin to the first video container to push all videos down */
+.video-container.first-video {
+    margin-top: 245px !important;
 }
 
 .video-container::after {
@@ -785,7 +790,7 @@ footer p {
         left: 13px;
         right: 13px;
         height: 50px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='2.5' fill='none' filter='url(%23glow)' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
     }
     
     .roadmap-bar ul::after {
@@ -796,7 +801,7 @@ footer p {
     }
     
     .roadmap-bar.animate-line ul::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='2.5' fill='none' filter='url(%23glow)' stroke-dasharray='2000' stroke-dashoffset='0'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' stroke-dasharray='2000' stroke-dashoffset='0'/%3E%3C/svg%3E");
     }
     
     .roadmap::before {
@@ -1596,5 +1601,1267 @@ footer p {
 .roadmap-bar li:nth-child(9):focus {
     transform: scale(1.15);
     box-shadow: 0 6px 20px rgba(254, 1, 88, 0.6), 0 0 0 3px rgba(254, 1, 88, 0.4);
+}
+
+.roadmap-bar li:nth-child(9):focus {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(254, 1, 88, 0.6), 0 0 0 3px rgba(254, 1, 88, 0.4);
+}
+
+/* Step 1 Window - Always Visible */
+.step-1-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(0% - 71px);
+    top: -207px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step window to first circle */
+.step-1-window::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-1-window::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: var(--accent-color);
+    z-index: 6;
+    margin-top: 34px;
+}
+
+.step-1-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-1-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-1-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-1-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+.step-1-window .step-video-container {
+    margin-top: 8px;
+}
+
+.step-1-window .step-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-1-window .step-video-wrapper:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(254, 1, 88, 0.3);
+}
+
+.step-1-window .step-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: auto;
+}
+
+/* Video Modal Styles */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Step 1 window mobile adjustments */
+@media (max-width: 768px) {
+    .step-1-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-1-window::before,
+    .step-1-window::after {
+        display: none;
+    }
+
+    .step-1-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-1-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-1-window .step-video-wrapper {
+        height: 80px;
+    }
+}
+
+/* Step 2 Window - Always Visible (Below roadmap bar) */
+.step-2-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(11.11% - 61px);
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 2 window to second circle (upward) */
+.step-2-window::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to top, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-2-window::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: var(--accent-color);
+    z-index: 6;
+    margin-bottom: 34px;
+}
+
+.step-2-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-2-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-2-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-2-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Video Modal Styles */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Step 1 window mobile adjustments */
+@media (max-width: 768px) {
+    .step-2-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-2-window::before,
+    .step-2-window::after {
+        display: none;
+    }
+
+    .step-2-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-2-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-2-window .step-video-wrapper {
+        height: 80px;
+    }
+}
+
+/* Only apply top margin to the first video container to push all videos down */
+.video-container.left:first-of-type {
+    margin-top: 245px !important;
+}
+
+/* Step 3 Window - Always Visible (Above roadmap bar) */
+.step-3-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(22.22% - 52px);
+    top: -207px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 3 window to third circle (downward) */
+.step-3-window::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-3-window::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: var(--accent-color);
+    z-index: 6;
+    margin-top: 34px;
+}
+
+.step-3-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-3-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-3-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-3-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Video Modal Styles */
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.video-modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Step 1 window mobile adjustments */
+@media (max-width: 768px) {
+    .step-3-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-3-window::before,
+    .step-3-window::after {
+        display: none;
+    }
+
+    .step-3-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-3-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-3-window .step-video-wrapper {
+        height: 80px;
+    }
+
+    .step-4-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-4-window::before,
+    .step-4-window::after {
+        display: none;
+    }
+
+    .step-4-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-4-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-4-window .step-video-wrapper {
+        height: 80px;
+    }
+
+    .step-5-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-5-window::before,
+    .step-5-window::after {
+        display: none;
+    }
+
+    .step-5-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-5-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-5-window .step-video-wrapper {
+        height: 80px;
+    }
+
+    .step-6-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-6-window::before,
+    .step-6-window::after {
+        display: none;
+    }
+
+    .step-6-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-6-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-6-window .step-video-wrapper {
+        height: 80px;
+    }
+
+    .step-7-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-7-window::before,
+    .step-7-window::after {
+        display: none;
+    }
+
+    .step-7-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-7-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-7-window .step-video-wrapper {
+        height: 80px;
+    }
+
+    .step-8-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-8-window::before,
+    .step-8-window::after {
+        display: none;
+    }
+
+    .step-8-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-8-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-8-window .step-video-wrapper {
+        height: 80px;
+    }
+
+    .step-9-window {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        top: auto;
+        transform: none;
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .step-9-window::before,
+    .step-9-window::after {
+        display: none;
+    }
+
+    .step-9-window h4 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .step-9-window li {
+        font-size: 0.75rem;
+        padding: 2px 0;
+    }
+
+    .step-9-window .step-video-wrapper {
+        height: 80px;
+    }
+}
+
+/* Step 4 Window - Always Visible (Below roadmap bar) */
+.step-4-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(33.33% - 42px);
+    top: 82px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 4 window to fourth circle (upward) */
+.step-4-window::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to top, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-4-window::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: var(--accent-color);
+    z-index: 6;
+    margin-bottom: 34px;
+}
+
+.step-4-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-4-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-4-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-4-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Step 5 Window - Always Visible (Above roadmap bar) */
+.step-5-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(44.44% - 33px);
+    top: -207px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 5 window to fifth circle (downward) */
+.step-5-window::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-5-window::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: var(--accent-color);
+    z-index: 6;
+    margin-top: 34px;
+}
+
+.step-5-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-5-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-5-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-5-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Step 6 Window - Always Visible (Below roadmap bar) */
+.step-6-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(55.55% - 23px);
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 6 window to sixth circle (upward) */
+.step-6-window::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to top, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-6-window::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: var(--accent-color);
+    z-index: 6;
+    margin-bottom: 34px;
+}
+
+.step-6-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-6-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-6-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-6-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Step 7 Window - Always Visible (Above roadmap bar) */
+.step-7-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(66.66% - 15px);
+    top: -207px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 7 window to seventh circle (downward) */
+.step-7-window::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-7-window::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: var(--accent-color);
+    z-index: 6;
+    margin-top: 34px;
+}
+
+.step-7-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-7-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-7-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-7-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Step 8 Window - Always Visible (Below roadmap bar) */
+.step-8-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(77.77% - 4px);
+    top: 81px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 8 window to eighth circle (upward) */
+.step-8-window::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to top, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-8-window::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: var(--accent-color);
+    z-index: 6;
+    margin-bottom: 34px;
+}
+
+.step-8-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-8-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-8-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-8-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
+}
+
+/* Step 9 Window - Always Visible (Above roadmap bar) */
+.step-9-window {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+    z-index: 10;
+    left: calc(88.88% + 4px);
+    top: -207px;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Connecting line from step 9 window to ninth circle (downward) */
+.step-9-window::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, 
+        var(--accent-color) 0%, 
+        rgba(254, 1, 88, 0.8) 50%,
+        rgba(254, 1, 88, 0.3) 100%);
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(254, 1, 88, 0.4);
+}
+
+.step-9-window::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: var(--accent-color);
+    z-index: 6;
+    margin-top: 34px;
+}
+
+.step-9-window h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(254, 1, 88, 0.3);
+    padding-bottom: 4px;
+    text-align: center;
+}
+
+.step-9-window ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.step-9-window li {
+    padding: 2px 0;
+    font-size: 0.7rem;
+    color: var(--light-text);
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+.step-9-window li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.5rem;
+    top: 3px;
 }
   
