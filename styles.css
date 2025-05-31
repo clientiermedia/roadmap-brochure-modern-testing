@@ -2945,3 +2945,52 @@ footer p {
     top: 3px;
 }
   
+/* Mobile adjustments for hero to video spacing - Reduce large gap on mobile devices */
+@media (max-width: 768px) {
+    /* Reduce hero container bottom padding on mobile */
+    .hero .container {
+        padding-bottom: 80px !important; /* Reduced from 310px for mobile */
+    }
+    
+    /* Reduce roadmap section top padding on mobile */
+    .roadmap {
+        padding: 40px 0 0px !important; /* Reduced from 80px 0 0px for mobile */
+    }
+    
+    /* Significantly reduce the first video top margin on mobile */
+    .video-container.first-video {
+        margin-top: 60px !important; /* Reduced from 245px for mobile */
+    }
+}
+
+/* Additional mobile breakpoints for consistent spacing */
+@media (max-width: 576px) {
+    /* Further reduce spacing for smaller mobile screens */
+    .hero .container {
+        padding-bottom: 60px !important; /* Further reduced for small screens */
+    }
+    
+    .roadmap {
+        padding: 30px 0 0px !important; /* Further reduced for small screens */
+    }
+    
+    .video-container.first-video {
+        margin-top: 40px !important; /* Further reduced for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Fine-tune spacing for very small screens */
+    .hero .container {
+        padding-bottom: 50px !important;
+    }
+    
+    .roadmap {
+        padding: 20px 0 0px !important;
+    }
+    
+    .video-container.first-video {
+        margin-top: 30px !important;
+    }
+}
+  
