@@ -860,9 +860,12 @@ footer p {
         font-size: 0.75rem;
     }
     
-    /* Hero section improvements - increased top padding */
+    /* Hero section improvements - fixed header overlap and reduced bottom padding */
     .hero {
-        padding: 180px 0 60px;
+        padding: 60px 0 0px;
+        position: relative;
+        z-index: 1;
+        margin-top: 100px;
     }
     
     .hero-title {
@@ -883,7 +886,7 @@ footer p {
     
     /* Roadmap section improvements */
     .roadmap {
-        padding: 60px 0 0px;
+        padding: 10px 0 0px;
     }
     
     .roadmap .container {
@@ -939,6 +942,23 @@ footer p {
         display: none;
     }
     
+    /* HIDE ROADMAP BAR AND STEP WINDOWS ON MOBILE ONLY */
+    .roadmap-bar {
+        display: none !important;
+    }
+    
+    .step-1-window,
+    .step-2-window,
+    .step-3-window,
+    .step-4-window,
+    .step-5-window,
+    .step-6-window,
+    .step-7-window,
+    .step-8-window,
+    .step-9-window {
+        display: none !important;
+    }
+    
     .roadmap-bar li::after {
         font-size: 8px;
         bottom: -25px;
@@ -954,28 +974,39 @@ footer p {
         display: none;
     }
     
-    /* Video container improvements */
+    /* ULTRA SPECIFIC VIDEO LAYOUT FOR MOBILE - Video on top, Text on bottom */
+    .video-container {
+        padding: 15px 10px;
+        margin-bottom: 30px;
+    }
+    
     .video-container.left,
     .video-container.right {
-        flex-direction: column;
-        padding: 20px 15px;
-        margin-bottom: 40px;
+        flex-direction: column !important;
+    }
+    
+    /* Force video to be on top regardless of original order */
+    .video-container.left .video-wrapper,
+    .video-container.right .video-wrapper {
+        order: 1 !important;
+        margin-bottom: 15px !important;
+        margin-top: 0 !important;
+    }
+    
+    /* Force text content to be on bottom regardless of original order */
+    .video-container.left .video-content,
+    .video-container.right .video-content {
+        order: 2 !important;
+        text-align: center !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
     }
     
     .video-wrapper,
     .video-content {
-        width: 100%;
+        width: 100% !important;
         padding: 10px 0;
-    }
-    
-    .video-content {
-        text-align: center;
-        margin-top: 15px;
-        order: 2;
-    }
-    
-    .video-wrapper {
-        order: 1;
+        flex: none !important;
     }
     
     .video-content h3 {
@@ -1092,6 +1123,22 @@ footer p {
     footer {
         padding: 25px 0 40px;
     }
+    
+    /* FINAL OVERRIDE: Force hide roadmap elements on mobile */
+    .roadmap-bar,
+    .step-1-window,
+    .step-2-window,
+    .step-3-window,
+    .step-4-window,
+    .step-5-window,
+    .step-6-window,
+    .step-7-window,
+    .step-8-window,
+    .step-9-window {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1114,7 +1161,10 @@ footer p {
     
     /* Hero section mobile */
     .hero {
-        padding: 110px 0 40px;
+        padding: 60px 0 0px;
+        position: relative;
+        z-index: 1;
+        margin-top: 100px;
     }
     
     .hero-title {
@@ -1130,7 +1180,7 @@ footer p {
     
     /* Roadmap mobile */
     .roadmap {
-        padding: 40px 0 0px;
+        padding: 10px 0 0px;
     }
     
     .roadmap .container {
@@ -1169,10 +1219,24 @@ footer p {
         right: 10px;
     }
     
-    /* Video containers mobile */
+    /* Video containers mobile - Video always on top, Text always on bottom */
     .video-container {
         padding: 15px 10px;
         margin-bottom: 30px;
+    }
+    
+    .video-container.left,
+    .video-container.right {
+        flex-direction: column;
+    }
+    
+    .video-wrapper {
+        order: 1; /* Video always on top */
+        margin-bottom: 15px;
+    }
+    
+    .video-content {
+        order: 2; /* Text always on bottom */
     }
     
     .video-content h3 {
@@ -1255,6 +1319,22 @@ footer p {
     footer p {
         font-size: 0.8rem;
         padding: 0 10px;
+    }
+    
+    /* FINAL OVERRIDE: Force hide roadmap elements on mobile */
+    .roadmap-bar,
+    .step-1-window,
+    .step-2-window,
+    .step-3-window,
+    .step-4-window,
+    .step-5-window,
+    .step-6-window,
+    .step-7-window,
+    .step-8-window,
+    .step-9-window {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
 }
 
