@@ -41,10 +41,9 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: min(90%, 1200px);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 clamp(1rem, 2vw, 2rem);
 }
 
 a {
@@ -60,7 +59,7 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 15px 0;
+    padding: clamp(0.75rem, 2vw, 1rem) 0;
     box-shadow: var(--shadow-medium);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(254, 1, 88, 0.2);
@@ -179,7 +178,7 @@ nav ul li a:hover::after {
 
 /* Hero Section */
 .hero {
-    padding: 140px 0 0px;
+    padding: clamp(8rem, 12vw, 10rem) 0 0;
     text-align: center;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 70%, var(--tertiary-color) 100%);
     position: relative;
@@ -217,12 +216,12 @@ nav ul li a:hover::after {
 .hero .container {
     position: relative;
     z-index: 2;
-    padding-bottom: 310px;
+    padding-bottom: clamp(12rem, 20vw, 19rem);
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
     font-weight: 700;
     color: var(--text-color);
     letter-spacing: -0.5px;
@@ -230,8 +229,8 @@ nav ul li a:hover::after {
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
-    max-width: 700px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: min(90%, 700px);
     margin: 0 auto;
     color: var(--muted-text);
     line-height: 1.6;
@@ -239,17 +238,17 @@ nav ul li a:hover::after {
 
 /* Roadmap Section */
 .roadmap {
-    padding: 80px 0 0px;
+    padding: clamp(3rem, 8vw, 5rem) 0 0;
     background: var(--tertiary-color);
     position: relative;
 }
 
 /* Horizontal Roadmap Bar */
 .roadmap-bar {
-    margin: 50px 0 60px;
+    margin: clamp(2rem, 5vw, 3rem) 0 clamp(2.5rem, 6vw, 4rem);
     position: relative;
     z-index: 2;
-    padding: 15px 0;
+    padding: clamp(0.5rem, 2vw, 1rem) 0;
 }
 
 .roadmap-bar ul {
@@ -331,15 +330,15 @@ nav ul li a:hover::after {
 
 /* Enhanced numbered circle items */
 .roadmap-bar li {
-    width: 28px;
-    height: 28px;
+    width: clamp(1.5rem, 3vw, 1.75rem);
+    height: clamp(1.5rem, 3vw, 1.75rem);
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-color), var(--bright-accent));
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     position: relative;
@@ -444,12 +443,12 @@ nav ul li a:hover::after {
 
 .video-container {
     display: flex;
-    margin-bottom: 60px;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
     border-radius: var(--border-radius-lg);
-    padding: 30px;
+    padding: clamp(1rem, 3vw, 2rem);
     background: var(--surface-color);
     position: relative;
     z-index: 3;
@@ -500,6 +499,7 @@ nav ul li a:hover::after {
 /* Left layout: Text LEFT, Video RIGHT */
 .video-container.left {
     flex-direction: row;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .video-container.left .video-content {
@@ -513,6 +513,7 @@ nav ul li a:hover::after {
 /* Right layout: Video LEFT, Text RIGHT */
 .video-container.right {
     flex-direction: row;
+    gap: clamp(1rem, 2vw, 2rem);
 }
 
 .video-container.right .video-wrapper {
@@ -525,21 +526,21 @@ nav ul li a:hover::after {
 
 .video-wrapper {
     flex: 1;
-    padding: 0 20px;
+    padding: 0 clamp(0.5rem, 2vw, 1.25rem);
     position: relative;
 }
 
 .video-content {
     flex: 1;
-    padding: 20px;
+    padding: clamp(0.5rem, 2vw, 1.25rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .video-content h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
     color: var(--accent-color);
     position: relative;
     display: inline-block;
@@ -551,14 +552,14 @@ nav ul li a:hover::after {
     position: absolute;
     left: 0;
     bottom: -6px;
-    width: 50px;
+    width: clamp(2rem, 4vw, 3rem);
     height: 3px;
     background: linear-gradient(90deg, var(--accent-color), var(--bright-accent));
     border-radius: 3px;
 }
 
 .video-content p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     color: var(--muted-text);
     line-height: 1.7;
 }
@@ -608,7 +609,7 @@ nav ul li a:hover::after {
 
 /* CTA Section */
 .cta-section {
-    padding: 80px 0 100px;
+    padding: clamp(3rem, 8vw, 5rem) 0 clamp(4rem, 10vw, 6rem);
     background: linear-gradient(-45deg, var(--primary-color) 0%, var(--secondary-color) 70%, var(--tertiary-color) 100%);
     text-align: center;
     position: relative;
@@ -633,7 +634,7 @@ nav ul li a:hover::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 200px;
+    height: clamp(8rem, 15vw, 12rem);
     background: linear-gradient(to top, 
         transparent 0%, 
         rgba(52, 39, 147, 0.3) 30%,
@@ -644,10 +645,10 @@ nav ul li a:hover::after {
 }
 
 .cta-content {
-    max-width: 800px;
+    max-width: min(90%, 800px);
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.06);
-    padding: 50px;
+    padding: clamp(2rem, 5vw, 3rem);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-heavy);
     position: relative;
@@ -657,8 +658,8 @@ nav ul li a:hover::after {
 }
 
 .cta-title {
-    font-size: 2.2rem;
-    margin-bottom: 35px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
     line-height: 1.3;
     color: var(--text-color);
@@ -672,15 +673,15 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 
 .phone {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.1rem;
-    padding: 12px 25px;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
     border-radius: 50px;
     background: var(--surface-color);
     transition: var(--transition-smooth);
@@ -700,8 +701,8 @@ nav ul li a:hover::after {
     background: linear-gradient(135deg, var(--accent-color), var(--bright-accent));
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 1.1rem;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
@@ -735,14 +736,14 @@ nav ul li a:hover::after {
 /* Footer */
 footer {
     background: rgba(0, 0, 0, 0.4);
-    padding: 25px 0;
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 footer p {
     color: var(--muted-text);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
 }
 
 /* Optimized Animations */
@@ -767,57 +768,61 @@ footer p {
 
 /* Enhanced Responsive Styles */
 @media (max-width: 992px) {
+    /* Remove hard-coded hero title - now using clamp() */
     .hero-title {
-        font-size: 2.8rem;
+        font-size: clamp(2.2rem, 4.5vw, 2.8rem);
     }
     
+    /* Remove hard-coded hero subtitle - now using clamp() */
     .hero-subtitle {
-        font-size: 1.2rem;
-        padding: 0 20px;
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        padding: 0 clamp(1rem, 2vw, 1.25rem);
     }
     
+    /* Make video content more responsive */
     .video-content h3 {
-        font-size: 1.8rem;
+        font-size: clamp(1.4rem, 2.8vw, 1.8rem);
     }
     
-    /* Apply same navigation spacing as desktop for consistent look */
+    /* Apply more fluid navigation spacing */
     nav ul {
-        gap: 5px; /* Match desktop spacing - even closer */
+        gap: clamp(3px, 0.8vw, 5px);
     }
     
     nav ul li {
-        margin-left: 12px; /* Match desktop spacing - even closer */
+        margin-left: clamp(8px, 1.5vw, 12px);
     }
     
-    /* Roadmap bar tablet adjustments */
+    /* More responsive roadmap bar */
     .roadmap-bar {
-        margin: 50px 0 60px;
-        padding: 15px 0;
+        margin: clamp(2rem, 4vw, 3rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+        padding: clamp(0.5rem, 1.5vw, 0.9rem) 0;
     }
     
+    /* Fluid roadmap circles */
     .roadmap-bar li {
-        width: 26px;
-        height: 26px;
-        font-size: 12px;
+        width: clamp(22px, 3.2vw, 26px);
+        height: clamp(22px, 3.2vw, 26px);
+        font-size: clamp(10px, 1.4vw, 12px);
         border: 2px solid white;
     }
     
     .roadmap-bar ul::before {
-        left: 13px;
-        right: 13px;
-        height: 50px;
+        left: clamp(11px, 1.5vw, 13px);
+        right: clamp(11px, 1.5vw, 13px);
+        height: clamp(40px, 6vw, 50px);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' stroke-dasharray='2000' stroke-dashoffset='2000'/%3E%3C/svg%3E");
     }
     
     .roadmap-bar ul::after {
-        left: 13px;
-        right: 13px;
-        height: 50px;
+        left: clamp(11px, 1.5vw, 13px);
+        right: clamp(11px, 1.5vw, 13px);
+        height: clamp(40px, 6vw, 50px);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='dotGlow'%3E%3CfeGaussianBlur stdDeviation='1.5' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Ccircle cx='100' cy='17' r='1' fill='%23ff2d7a' filter='url(%23dotGlow)' opacity='0'%3E%3Canimate attributeName='opacity' values='0;1;0' dur='2s' repeatCount='indefinite' begin='0s'/%3E%3C/circle%3E%3Ccircle cx='300' cy='33' r='1' fill='%23fe0158' filter='url(%23dotGlow)' opacity='0'%3E%3Canimate attributeName='opacity' values='0;1;0' dur='2s' repeatCount='indefinite' begin='0.5s'/%3E%3C/circle%3E%3Ccircle cx='500' cy='17' r='1' fill='%23ff2d7a' filter='url(%23dotGlow)' opacity='0'%3E%3Canimate attributeName='opacity' values='0;1;0' dur='2s' repeatCount='indefinite' begin='1s'/%3E%3C/circle%3E%3Ccircle cx='700' cy='33' r='1' fill='%23fe0158' filter='url(%23dotGlow)' opacity='0'%3E%3Canimate attributeName='opacity' values='0;1;0' dur='2s' repeatCount='indefinite' begin='1.5s'/%3E%3C/circle%3E%3C/svg%3E");
     }
     
     .roadmap-bar.animate-line ul::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 50' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='pathGradient' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3Cstop offset='50%25' style='stop-color:%23ff2d7a;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23fe0158;stop-opacity:0.8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,25 Q100,8 200,25 Q300,42 400,25 Q500,8 600,25 Q700,42 800,25' stroke='url(%23pathGradient)' stroke-width='1.8' fill='none' stroke-dasharray='2000' stroke-dashoffset='0'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 30' preserveAspectRatio='none'%3E%3Cpath d='M0,15 Q100,3 200,15 T400,15 T600,15 T800,15' stroke='%23fe0158' stroke-width='2' fill='none' stroke-dasharray='1600' stroke-dashoffset='1600'/%3E%3C/svg%3E");
     }
     
     .roadmap::before {
@@ -828,27 +833,140 @@ footer p {
         display: none;
     }
     
+    /* Responsive logo */
     .logo-img {
-        height: 35px;
+        height: clamp(32px, 4vw, 35px);
     }
     
-    /* Adjust hero icons for tablet */
+    /* Adjust hero icons for tablet - more responsive sizing */
     .hero .container::before {
-        font-size: 5rem;
+        font-size: clamp(4rem, 6vw, 5rem);
         top: 10%;
         left: 4%;
     }
     
     .hero .container::after {
-        font-size: 4rem;
+        font-size: clamp(3.5rem, 5vw, 4rem);
         top: 40%;
         right: 6%;
     }
     
-    /* Adjust CTA icons for tablet */
+    /* Adjust CTA icons for tablet - more responsive sizing */
     .cta-content::before,
     .cta-content::after {
-        font-size: 3.5rem;
+        font-size: clamp(3rem, 4vw, 3.5rem);
+    }
+}
+
+/* Tablet-specific media query for step window size reduction (744px - 1180px range) */
+@media (min-width: 744px) and (max-width: 1180px) {
+    /* Reduce step window sizes for tablet range */
+    .step-1-window,
+    .step-2-window,
+    .step-3-window,
+    .step-4-window,
+    .step-5-window,
+    .step-6-window,
+    .step-7-window,
+    .step-8-window,
+    .step-9-window {
+        width: 160px !important;
+        height: 150px !important;
+        padding: 10px !important;
+    }
+    
+    /* Move 9th step window down by 20px for tablet range */
+    .step-9-window {
+        top: -177px !important; /* 2px down from -179px (less negative) */
+        left: calc(88.88% + 1px) !important; /* 1px left from +2px */
+    }
+    
+    /* Move 1st, 3rd, 5th, 7th step windows 8px right and 20px down */
+    .step-1-window {
+        left: calc(0% - 48px) !important; /* 1px more to the right from -49px */
+        top: -177px !important; /* 10px more down from -187px */
+    }
+    
+    .step-3-window {
+        left: calc(22.22% - 35px) !important; /* 1px more to the left from -34px */
+        top: -177px !important; /* 10px more down from -187px */
+    }
+    
+    .step-5-window {
+        left: calc(44.44% - 23px) !important; /* 2px more to the right from -25px */
+        top: -177px !important; /* 1px up from -176px (more negative) */
+    }
+    
+    .step-7-window {
+        left: calc(66.66% - 11px) !important; /* 1px left from -10px (more negative) */
+        top: -177px !important; /* 2px up from -175px (more negative) */
+    }
+    
+    /* Move 2nd, 4th, 6th, 8th step windows 8px right */
+    .step-2-window {
+        left: calc(11.11% - 44px) !important; /* 4px more right from -48px */
+    }
+    
+    .step-4-window {
+        left: calc(33.33% - 30px) !important; /* 4px more right from -34px */
+    }
+    
+    .step-6-window {
+        left: calc(55.55% - 15px) !important; /* 4px more right from -19px */
+    }
+    
+    .step-8-window {
+        left: calc(77.77% - 1px) !important; /* 4px more right from -5px */
+    }
+    
+    /* Adjust font sizes within step windows for smaller size */
+    .step-1-window h4,
+    .step-2-window h4,
+    .step-3-window h4,
+    .step-4-window h4,
+    .step-5-window h4,
+    .step-6-window h4,
+    .step-7-window h4,
+    .step-8-window h4,
+    .step-9-window h4 {
+        font-size: 0.8rem !important;
+        margin-bottom: 6px !important;
+    }
+    
+    /* Adjust list item sizes for smaller windows */
+    .step-1-window li,
+    .step-2-window li,
+    .step-3-window li,
+    .step-4-window li,
+    .step-5-window li,
+    .step-6-window li,
+    .step-7-window li,
+    .step-8-window li,
+    .step-9-window li {
+        font-size: 0.65rem !important;
+        padding: 1px 0 !important;
+        line-height: 1.1 !important;
+        padding-left: 14px !important; /* Increased to provide more space for arrow */
+    }
+    
+    /* Fix red arrow positioning and size for tablet range */
+    .step-1-window li::before,
+    .step-2-window li::before,
+    .step-3-window li::before,
+    .step-4-window li::before,
+    .step-5-window li::before,
+    .step-6-window li::before,
+    .step-7-window li::before,
+    .step-8-window li::before,
+    .step-9-window li::before {
+        font-size: 0.45rem !important; /* Slightly smaller arrow */
+        top: 2px !important; /* Better vertical alignment */
+        left: 2px !important; /* Slight offset from left edge */
+    }
+    
+    /* Adjust video wrapper height in step windows */
+    .step-1-window .step-video-wrapper {
+        height: 45px !important;
     }
 }
 
@@ -1758,16 +1876,16 @@ footer p {
 /* Step 1 Window - Always Visible */
 .step-1-window {
     position: absolute;
-    width: 200px;
-    height: 180px;
+    width: clamp(160px, 20vw, 200px);
+    height: clamp(140px, 18vw, 180px);
     background: rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius);
-    padding: 12px;
+    padding: clamp(8px, 1.5vw, 12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(0% - 71px);
+    left: calc(0% - 62px);
     top: -207px;
     opacity: 1;
     visibility: visible;
@@ -1806,8 +1924,8 @@ footer p {
 }
 
 .step-1-window h4 {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    margin-bottom: clamp(4px, 1vw, 8px);
     color: var(--accent-color);
     font-weight: 600;
     border-bottom: 2px solid rgba(254, 1, 88, 0.3);
@@ -1824,10 +1942,10 @@ footer p {
 
 .step-1-window li {
     padding: 2px 0;
-    font-size: 0.7rem;
+    font-size: clamp(0.6rem, 1vw, 0.7rem);
     color: var(--light-text);
     position: relative;
-    padding-left: 12px;
+    padding-left: clamp(10px, 1.5vw, 12px);
     line-height: 1.2;
 }
 
@@ -1836,7 +1954,7 @@ footer p {
     position: absolute;
     left: 0;
     color: var(--accent-color);
-    font-size: 0.5rem;
+    font-size: clamp(0.4rem, 0.8vw, 0.5rem);
     top: 3px;
 }
 
@@ -1973,8 +2091,8 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(11.11% - 61px);
-    top: 70px;
+    left: calc(11.11% - 54px);
+    top: 71px;
     opacity: 1;
     visibility: visible;
 }
@@ -2153,7 +2271,7 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(22.22% - 52px);
+    left: calc(22.22% - 47px);
     top: -207px;
     opacity: 1;
     visibility: visible;
@@ -2514,8 +2632,8 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(33.33% - 42px);
-    top: 82px;
+    left: calc(33.33% - 40px);
+    top: 83px;
     opacity: 1;
     visibility: visible;
 }
@@ -2684,8 +2802,8 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(55.55% - 23px);
-    top: 70px;
+    left: calc(55.55% - 25px);
+    top: 71px;
     opacity: 1;
     visibility: visible;
 }
@@ -2769,7 +2887,7 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(66.66% - 15px);
+    left: calc(66.66% - 19px);
     top: -207px;
     opacity: 1;
     visibility: visible;
@@ -2854,8 +2972,8 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(77.77% - 4px);
-    top: 81px;
+    left: calc(77.77% - 11px);
+    top: 83px;
     opacity: 1;
     visibility: visible;
 }
@@ -2939,11 +3057,12 @@ footer p {
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-medium);
     z-index: 10;
-    left: calc(88.88% + 4px);
+    left: calc(88.88% - 5px);
     top: -207px;
     opacity: 1;
     visibility: visible;
 }
+
 
 /* Connecting line from step 9 window to ninth circle (downward) */
 .step-9-window::after {
@@ -3058,6 +3177,42 @@ footer p {
     
     .video-container.first-video {
         margin-top: 30px !important;
+    }
+}
+
+/* iPad 11 inch specific adjustments (1180 x 820) */
+@media (min-width: 1180px) and (max-width: 1194px) {
+    /* Move steps 2, 3, 4, 5, 6, 7, 8, 9 by 2px to the right */
+    .step-2-window {
+        left: calc(11.11% - 40px) !important; /* 4px more right (less negative) from -44px */
+    }
+    
+    .step-3-window {
+        left: calc(22.22% - 33px) !important; /* 4px more right (less negative) from -37px */
+    }
+    
+    .step-4-window {
+        left: calc(33.33% - 26px) !important; /* 4px more right (less negative) from -30px */
+    }
+    
+    .step-5-window {
+        left: calc(44.44% - 21px) !important; /* 2px more right (less negative) from -23px */
+    }
+    
+    .step-6-window {
+        left: calc(55.55% - 15px) !important; /* 4px more right (less negative) from -19px */
+    }
+    
+    .step-7-window {
+        left: calc(66.66% - 7px) !important; /* 2px more right (less negative) from -9px */
+    }
+    
+    .step-8-window {
+        left: calc(77.77% - 2px) !important; /* 1px left (more negative) from -1px */
+    }
+    
+    .step-9-window {
+        left: calc(88.88% + 5px) !important; /* 4px more right (more positive) from +1px */
     }
 }
   
