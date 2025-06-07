@@ -23,13 +23,132 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+        // Update phone numbers based on language
+        updatePhoneNumbers(lang);
+        
         // Store preference
         localStorage.setItem('preferredLanguage', lang);
     }
     
-    // Initialize language
-    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-    switchLanguage(savedLang);
+    function updatePhoneNumbers(lang) {
+        // Hide all phone number containers
+        const phoneContainers = document.querySelectorAll('.phone-numbers');
+        phoneContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        // When user manually switches language, show language-based numbers (not country-based)
+        const currentPhoneContainer = document.querySelector(`.phone-numbers[data-lang="${lang}"]`);
+        if (currentPhoneContainer) {
+            currentPhoneContainer.style.display = 'block';
+        }
+        
+        // Update body class to match language
+        document.body.className = document.body.className.replace(/lang-\w+/g, '');
+        document.body.classList.add(`lang-${lang}`);
+    }
+    
+    // Country detection and phone number setup
+    let countryDetected = false;
+    
+    async function detectCountryAndSetup() {
+        try {
+            // Create a timeout controller
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            
+            const response = await fetch('https://ipapi.co/json/', {
+                signal: controller.signal
+            });
+            
+            clearTimeout(timeoutId);
+            
+            if (!response.ok) {
+                throw new Error('API request failed');
+            }
+            
+            const data = await response.json();
+            const countryCode = data.country_code;
+            
+            console.log('Detected country:', countryCode);
+            
+            // Set body class and show appropriate phone numbers based on country
+            setCountryBasedDisplay(countryCode);
+            countryDetected = true;
+            
+        } catch (error) {
+            console.log('Country detection failed, using fallback:', error);
+            // Fallback: show all numbers and set lang-en class
+            setCountryBasedDisplay('fallback');
+        }
+    }
+    
+    function setCountryBasedDisplay(countryCode) {
+        // Hide all phone number containers first
+        const allPhoneContainers = document.querySelectorAll('.phone-numbers');
+        allPhoneContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        // Set body class and show appropriate phone numbers
+        let bodyClass = 'lang-en';
+        let phoneSelector = '[data-country="other"]'; // default fallback
+        
+        switch (countryCode) {
+            case 'US':
+                bodyClass = 'lang-en';
+                phoneSelector = '[data-country="US"]';
+                break;
+            case 'GB':
+                bodyClass = 'lang-en';
+                phoneSelector = '[data-country="GB"]';
+                break;
+            case 'NL':
+                bodyClass = 'lang-nl';
+                phoneSelector = '[data-country="NL"]';
+                // Auto-switch to Dutch language
+                switchLanguage('nl');
+                break;
+            case 'ES':
+                bodyClass = 'lang-es';
+                phoneSelector = '[data-country="ES"]';
+                // Auto-switch to Spanish language
+                switchLanguage('es');
+                break;
+            case 'fallback':
+                bodyClass = 'lang-en';
+                phoneSelector = '[data-country="fallback"]';
+                break;
+            default:
+                // All other countries get Netherlands number
+                bodyClass = 'lang-en';
+                phoneSelector = '[data-country="other"]';
+                break;
+        }
+        
+        // Set body class
+        document.body.className = document.body.className.replace(/lang-\w+/g, '');
+        document.body.classList.add(bodyClass);
+        
+        // Show the appropriate phone number container
+        const phoneContainer = document.querySelector(`.phone-numbers${phoneSelector}`);
+        if (phoneContainer) {
+            phoneContainer.style.display = 'block';
+        }
+        
+        console.log('Set body class:', bodyClass, 'Phone selector:', phoneSelector);
+    }
+    
+    // Initialize country detection
+    detectCountryAndSetup();
+    
+    // Initialize language (only if country detection didn't set it)
+    setTimeout(() => {
+        if (!countryDetected) {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(savedLang);
+        }
+    }, 100);
     
     // Add event listeners
     langButtons.forEach(button => {
@@ -70,14 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 300);
     
-    // CTA button interaction
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function() {
-            // Here you would typically trigger a modal or redirect to a booking page
-            alert('Booking functionality would be implemented here!');
-        });
-    }
+    // CTA button is now a direct link to Google Calendar - no JavaScript needed
     
     // Update nav links based on language
     updateNavLinks();
@@ -196,6 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function initRoadmapNavigation() {
         const roadmapCircles = document.querySelectorAll('.roadmap-bar li');
         const videoContainers = document.querySelectorAll('.video-container');
+        const stepWindows = document.querySelectorAll('[class*="step-"][class*="-window"]');
         
         function scrollToStep(stepNumber) {
             // Find the video container with the matching number indicator
@@ -269,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Add click event listeners
+        // Add click event listeners to roadmap circles
         roadmapCircles.forEach((circle, index) => {
             circle.addEventListener('click', () => {
                 scrollToStep(index + 1);
@@ -281,6 +394,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     e.preventDefault();
                     scrollToStep(index + 1);
                 }
+            });
+        });
+        
+        // Add click event listeners to step windows
+        stepWindows.forEach((stepWindow, index) => {
+            // Extract step number from class name (e.g., "step-1-window" -> 1)
+            const stepNumber = parseInt(stepWindow.className.match(/step-(\d+)-window/)[1]);
+            
+            stepWindow.addEventListener('click', (e) => {
+                // Prevent the click if it's on a video wrapper (to avoid conflicts with video modal)
+                if (e.target.closest('.step-video-wrapper')) {
+                    return;
+                }
+                scrollToStep(stepNumber);
+            });
+            
+            // Add visual feedback on hover to indicate clickability - matching roadmap circle effect
+            stepWindow.style.cursor = 'pointer';
+            stepWindow.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+            
+            stepWindow.addEventListener('mouseenter', () => {
+                stepWindow.style.boxShadow = '0 8px 25px rgba(254, 1, 88, 0.25), 0 0 0 8px rgba(254, 1, 88, 0.08)';
+                stepWindow.style.transform = 'scale(1.05)';
+            });
+            
+            stepWindow.addEventListener('mouseleave', () => {
+                stepWindow.style.boxShadow = '';
+                stepWindow.style.transform = '';
             });
         });
     }
