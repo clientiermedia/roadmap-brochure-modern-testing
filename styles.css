@@ -1354,11 +1354,13 @@ footer p {
     /* CTA section improvements */
     .cta-section {
         padding: 60px 0 80px;
+        text-align: center;
     }
     
     .cta-content {
         padding: 35px 20px 40px;
-        margin: 0 15px;
+        margin: 0 auto;
+        max-width: calc(100% - 30px);
     }
     
     .cta-title {
@@ -1439,6 +1441,7 @@ footer p {
     /* Container adjustments */
     .container {
         width: 95%;
+        margin: 0 auto;
         padding: 0 15px;
     }
     
@@ -1607,11 +1610,13 @@ footer p {
     /* CTA section mobile */
     .cta-section {
         padding: 40px 0 60px;
+        text-align: center;
     }
     
     .cta-content {
         padding: 25px 15px;
-        margin: 0 10px;
+        margin: 0 auto;
+        max-width: calc(100% - 20px);
     }
     
     .cta-title {
@@ -1669,6 +1674,7 @@ footer p {
     /* Container mobile */
     .container {
         width: 98%;
+        margin: 0 auto;
         padding: 0 10px;
     }
     
@@ -1741,6 +1747,7 @@ footer p {
     }
     
     .container {
+        margin: 0 auto;
         padding: 0 8px;
     }
 }
