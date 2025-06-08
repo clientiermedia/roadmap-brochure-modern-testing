@@ -109,9 +109,10 @@ document.addEventListener('DOMContentLoaded', function() {
             setCountryBasedDisplay(countryCode);
             
         } catch (error) {
-            console.log('Country detection failed, using fallback:', error);
-            // Fallback: show all numbers and set lang-en class
-            setCountryBasedDisplay('fallback');
+            console.log('Country detection failed, using other countries default:', error);
+            // For API failures, use the default "other countries" behavior
+            // This shows only Dutch number with English language
+            setCountryBasedDisplay('default');
         }
     }
     
@@ -149,11 +150,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 phoneSelector = '[data-lang="es"]';
                 break;
             case 'fallback':
+                // Only used for testing - shows all numbers
                 language = 'en';
                 phoneSelector = '[data-country="fallback"]';
                 break;
+            case 'default':
+                // Used when API fails - shows only Dutch number
+                language = 'en';
+                phoneSelector = '[data-country="other"]';
+                break;
             default:
-                // All other countries get Netherlands number and English language
+                // All other countries including India - shows only Dutch number with English
                 language = 'en';
                 phoneSelector = '[data-country="other"]';
                 break;
@@ -204,12 +211,134 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('- Body class:', bodyClass);
         console.log('- Country detected flag:', countryDetected);
         
+        // Show phone numbers
+        if (activePhoneContainer) {
+            const phones = activePhoneContainer.querySelectorAll('a[href^="tel:"]');
+            console.log('- Phone numbers:', Array.from(phones).map(p => p.href.replace('tel:', '')));
+        }
+        
         return {
             phoneContainer: activePhoneContainer,
             language: activeLangButton ? activeLangButton.getAttribute('data-lang') : null,
             bodyClass: bodyClass,
             countryDetected: countryDetected
         };
+    };
+    
+    // Quick test for India
+    window.testIndia = function() {
+        console.log('=== TESTING INDIA ===');
+        return testCountryDetection('IN');
+    };
+    
+    // Comprehensive test for all country scenarios
+    window.testAllCountries = function() {
+        console.log('🌍 COMPREHENSIVE COUNTRY DETECTION TEST');
+        console.log('=====================================');
+        
+        const testCases = [
+            { country: 'US', expectedLang: 'en', expectedPhone: 'US', description: '🇺🇸 United States' },
+            { country: 'GB', expectedLang: 'en', expectedPhone: 'GB', description: '🇬🇧 United Kingdom' },
+            { country: 'NL', expectedLang: 'nl', expectedPhone: 'nl', description: '🇳🇱 Netherlands' },
+            { country: 'ES', expectedLang: 'es', expectedPhone: 'es', description: '🇪🇸 Spain' },
+            { country: 'IN', expectedLang: 'en', expectedPhone: 'other', description: '🇮🇳 India' },
+            { country: 'DE', expectedLang: 'en', expectedPhone: 'other', description: '🇩🇪 Germany' },
+            { country: 'FR', expectedLang: 'en', expectedPhone: 'other', description: '🇫🇷 France' },
+            { country: 'default', expectedLang: 'en', expectedPhone: 'other', description: '⚠️ API Failure' },
+            { country: 'fallback', expectedLang: 'en', expectedPhone: 'fallback', description: '🔧 Test Fallback' }
+        ];
+        
+        let allPassed = true;
+        
+        testCases.forEach((test, index) => {
+            console.log(`\n${index + 1}. Testing ${test.description}`);
+            console.log(`   Country Code: ${test.country}`);
+            
+            const result = testCountryDetection(test.country);
+            
+            // Check language
+            const langPassed = result.language === test.expectedLang;
+            console.log(`   ✅ Language: ${result.language} ${langPassed ? '✅' : '❌ Expected: ' + test.expectedLang}`);
+            
+            // Check phone container
+            const phoneContainer = result.phoneContainer;
+            let phonePassed = false;
+            let actualPhone = 'none';
+            
+            if (phoneContainer) {
+                if (test.expectedPhone === 'fallback') {
+                    phonePassed = phoneContainer.getAttribute('data-country') === 'fallback';
+                    actualPhone = 'fallback (all numbers)';
+                } else if (test.expectedPhone === 'other') {
+                    phonePassed = phoneContainer.getAttribute('data-country') === 'other';
+                    actualPhone = 'other (Dutch number)';
+                } else if (['US', 'GB'].includes(test.expectedPhone)) {
+                    phonePassed = phoneContainer.getAttribute('data-country') === test.expectedPhone;
+                    actualPhone = `${test.expectedPhone} number`;
+                } else if (['nl', 'es'].includes(test.expectedPhone)) {
+                    phonePassed = phoneContainer.getAttribute('data-lang') === test.expectedPhone;
+                    actualPhone = `${test.expectedPhone} number`;
+                }
+            }
+            
+            console.log(`   📞 Phone: ${actualPhone} ${phonePassed ? '✅' : '❌ Expected: ' + test.expectedPhone}`);
+            
+            if (!langPassed || !phonePassed) {
+                allPassed = false;
+            }
+        });
+        
+        console.log('\n=====================================');
+        console.log(`🎯 OVERALL RESULT: ${allPassed ? '✅ ALL TESTS PASSED!' : '❌ SOME TESTS FAILED'}`);
+        console.log('=====================================');
+        
+        return allPassed;
+    };
+    
+    // Test actual live country detection
+    window.testLiveDetection = async function() {
+        console.log('🌐 TESTING LIVE COUNTRY DETECTION');
+        console.log('==================================');
+        
+        // Reset everything
+        window.manualLanguageSwitch = false;
+        countryDetected = false;
+        
+        const allPhoneContainers = document.querySelectorAll('.phone-numbers');
+        allPhoneContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        console.log('Running actual country detection...');
+        
+        try {
+            await detectCountryAndSetup();
+            
+            // Give it a moment to complete
+            setTimeout(() => {
+                const activeContainer = document.querySelector('.phone-numbers[style*="block"]');
+                const activeLang = document.querySelector('.lang-btn.active');
+                
+                console.log('\n🎯 LIVE DETECTION RESULTS:');
+                console.log('- Language:', activeLang ? activeLang.getAttribute('data-lang') : 'None');
+                console.log('- Body class:', document.body.className);
+                
+                if (activeContainer) {
+                    const containerType = activeContainer.getAttribute('data-country') || activeContainer.getAttribute('data-lang');
+                    const phones = activeContainer.querySelectorAll('a[href^="tel:"]');
+                    console.log('- Phone container:', containerType);
+                    console.log('- Phone numbers:', Array.from(phones).map(p => p.href.replace('tel:', '')));
+                } else {
+                    console.log('- Phone container: None visible ❌');
+                }
+                
+                console.log('- Country detected flag:', countryDetected);
+                console.log('==================================');
+            }, 500);
+            
+        } catch (error) {
+            console.error('Error during live detection:', error);
+        }
     };
     
     // Debug function to show all phone containers and their status
