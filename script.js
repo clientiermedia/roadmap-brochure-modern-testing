@@ -70,6 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+        // Set body class for language
+        document.body.className = document.body.className.replace(/lang-\w+/g, '');
+        document.body.classList.add(`lang-${lang}`);
+        
         // Update nav links
         updateNavLinks();
         
@@ -103,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Set body class and show appropriate phone numbers based on country
             setCountryBasedDisplay(countryCode);
-            countryDetected = true;
             
         } catch (error) {
             console.log('Country detection failed, using fallback:', error);
@@ -124,45 +127,40 @@ document.addEventListener('DOMContentLoaded', function() {
             container.style.display = 'none';
         });
         
-        // Set body class and show appropriate phone numbers
-        let bodyClass = 'lang-en';
+        // Set language and phone display based on country
+        let language = 'en';
         let phoneSelector = '[data-country="other"]'; // default fallback
         
         switch (countryCode) {
             case 'US':
-                bodyClass = 'lang-en';
+                language = 'en';
                 phoneSelector = '[data-country="US"]';
                 break;
             case 'GB':
-                bodyClass = 'lang-en';
+                language = 'en';
                 phoneSelector = '[data-country="GB"]';
                 break;
             case 'NL':
-                bodyClass = 'lang-nl';
-                phoneSelector = '[data-lang="nl"]'; // Use language-based selector instead
-                // Auto-switch to Dutch language without triggering country display again
-                switchLanguageForCountry('nl');
+                language = 'nl';
+                phoneSelector = '[data-lang="nl"]';
                 break;
             case 'ES':
-                bodyClass = 'lang-es';
-                phoneSelector = '[data-lang="es"]'; // Use language-based selector instead
-                // Auto-switch to Spanish language without triggering country display again
-                switchLanguageForCountry('es');
+                language = 'es';
+                phoneSelector = '[data-lang="es"]';
                 break;
             case 'fallback':
-                bodyClass = 'lang-en';
+                language = 'en';
                 phoneSelector = '[data-country="fallback"]';
                 break;
             default:
-                // All other countries get Netherlands number
-                bodyClass = 'lang-en';
+                // All other countries get Netherlands number and English language
+                language = 'en';
                 phoneSelector = '[data-country="other"]';
                 break;
         }
         
-        // Set body class
-        document.body.className = document.body.className.replace(/lang-\w+/g, '');
-        document.body.classList.add(bodyClass);
+        // Apply language switching for all countries
+        switchLanguageForCountry(language);
         
         // Show the appropriate phone number container
         const phoneContainer = document.querySelector(`.phone-numbers${phoneSelector}`);
@@ -170,11 +168,62 @@ document.addEventListener('DOMContentLoaded', function() {
             phoneContainer.style.display = 'block';
         }
         
-        console.log('Set body class:', bodyClass, 'Phone selector:', phoneSelector);
+        console.log('Country:', countryCode, 'Language:', language, 'Phone selector:', phoneSelector);
+        
+        // Mark country detection as completed
+        countryDetected = true;
     }
     
     // Initialize country detection
     detectCountryAndSetup();
+    
+    // Debug function to test country detection manually
+    window.testCountryDetection = function(countryCode) {
+        console.log('Testing country detection for:', countryCode);
+        // Reset state
+        window.manualLanguageSwitch = false;
+        countryDetected = false;
+        
+        // Hide all phone containers
+        const allPhoneContainers = document.querySelectorAll('.phone-numbers');
+        allPhoneContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        // Test the country detection
+        setCountryBasedDisplay(countryCode);
+        
+        // Check results
+        const activePhoneContainer = document.querySelector('.phone-numbers[style*="block"]');
+        const activeLangButton = document.querySelector('.lang-btn.active');
+        const bodyClass = document.body.className;
+        
+        console.log('Results:');
+        console.log('- Active phone container:', activePhoneContainer ? activePhoneContainer.getAttribute('data-country') || activePhoneContainer.getAttribute('data-lang') : 'None');
+        console.log('- Active language button:', activeLangButton ? activeLangButton.getAttribute('data-lang') : 'None');
+        console.log('- Body class:', bodyClass);
+        console.log('- Country detected flag:', countryDetected);
+        
+        return {
+            phoneContainer: activePhoneContainer,
+            language: activeLangButton ? activeLangButton.getAttribute('data-lang') : null,
+            bodyClass: bodyClass,
+            countryDetected: countryDetected
+        };
+    };
+    
+    // Debug function to show all phone containers and their status
+    window.showPhoneContainersStatus = function() {
+        const containers = document.querySelectorAll('.phone-numbers');
+        console.log('Phone containers status:');
+        containers.forEach((container, index) => {
+            const country = container.getAttribute('data-country');
+            const lang = container.getAttribute('data-lang');
+            const display = window.getComputedStyle(container).display;
+            const identifier = country || lang || 'unknown';
+            console.log(`${index + 1}. [${identifier}] - Display: ${display}`);
+        });
+    };
     
     // Initialize language (only if country detection didn't set it)
     setTimeout(() => {
@@ -224,9 +273,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
     
     // CTA button is now a direct link to Google Calendar - no JavaScript needed
-    
-    // Update nav links based on language
-    updateNavLinks();
     
     // Optimized scroll reveal with Intersection Observer
     const observerOptions = {
