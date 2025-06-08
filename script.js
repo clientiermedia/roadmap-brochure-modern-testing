@@ -46,6 +46,35 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update body class to match language
         document.body.className = document.body.className.replace(/lang-\w+/g, '');
         document.body.classList.add(`lang-${lang}`);
+        
+        // Mark that manual language switching is active to prevent country-based display
+        window.manualLanguageSwitch = true;
+    }
+    
+    // Special function for auto-language switching from country detection
+    function switchLanguageForCountry(lang) {
+        // Update active language button
+        langButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.lang === lang) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Update localized text (without phone number handling)
+        const elements = document.querySelectorAll('.localized-text');
+        elements.forEach(element => {
+            const text = element.getAttribute(`data-${lang}`);
+            if (text) {
+                element.innerHTML = text;
+            }
+        });
+        
+        // Update nav links
+        updateNavLinks();
+        
+        // Store preference
+        localStorage.setItem('preferredLanguage', lang);
     }
     
     // Country detection and phone number setup
@@ -84,6 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function setCountryBasedDisplay(countryCode) {
+        // Don't override if manual language switching is already active
+        if (window.manualLanguageSwitch) {
+            return;
+        }
+        
         // Hide all phone number containers first
         const allPhoneContainers = document.querySelectorAll('.phone-numbers');
         allPhoneContainers.forEach(container => {
@@ -105,15 +139,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             case 'NL':
                 bodyClass = 'lang-nl';
-                phoneSelector = '[data-country="NL"]';
-                // Auto-switch to Dutch language
-                switchLanguage('nl');
+                phoneSelector = '[data-lang="nl"]'; // Use language-based selector instead
+                // Auto-switch to Dutch language without triggering country display again
+                switchLanguageForCountry('nl');
                 break;
             case 'ES':
                 bodyClass = 'lang-es';
-                phoneSelector = '[data-country="ES"]';
-                // Auto-switch to Spanish language
-                switchLanguage('es');
+                phoneSelector = '[data-lang="es"]'; // Use language-based selector instead
+                // Auto-switch to Spanish language without triggering country display again
+                switchLanguageForCountry('es');
                 break;
             case 'fallback':
                 bodyClass = 'lang-en';
