@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 5000);
             
-            const response = await fetch('https://ipapi.co/json/', {
+            const response = await fetch('https://ipinfo.io/json?token=9b7acc9879a7e5', {
                 signal: controller.signal
             });
             
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             const data = await response.json();
-            const countryCode = data.country_code;
+            const countryCode = data.country;
             
             console.log('Detected country:', countryCode);
             
