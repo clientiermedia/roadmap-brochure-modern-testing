@@ -368,14 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    // Initialize language (only if country detection didn't set it)
-    setTimeout(() => {
-        if (!countryDetected) {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-            switchLanguage(savedLang);
-        }
-    }, 100);
-    
     // Add event listeners
     langButtons.forEach(button => {
         button.addEventListener('click', () => {
