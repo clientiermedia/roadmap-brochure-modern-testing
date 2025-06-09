@@ -163,6 +163,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 language = 'es';
                 phoneSelector = '[data-lang="es"]';
                 break;
+            case 'CA':
+                language = 'en';
+                phoneSelector = '[data-country="CA"]';
+                break;
             case 'fallback':
                 // Only used for testing - shows all numbers
                 language = 'en';
