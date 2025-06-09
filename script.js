@@ -31,13 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updatePhoneNumbers(lang) {
+        document.querySelectorAll('.phone-numbers[data-country]').forEach(el => el.style.display = 'none');
         // Hide all phone number containers
         const phoneContainers = document.querySelectorAll('.phone-numbers');
         phoneContainers.forEach(container => {
             container.style.display = 'none';
         });
         
-        // When user manually switches language, show language-based numbers (not country-based)
+        // When user manually switches language, hide all country-based containers
+        const countryBasedContainers = document.querySelectorAll('.phone-numbers[data-country]');
+        countryBasedContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        // Show only the appropriate language-based container
         const currentPhoneContainer = document.querySelector(`.phone-numbers[data-lang="${lang}"]`);
         if (currentPhoneContainer) {
             currentPhoneContainer.style.display = 'block';
@@ -123,8 +130,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Hide all phone number containers first
+        document.querySelectorAll('.phone-numbers[data-lang]').forEach(el => el.style.display = 'none');
         const allPhoneContainers = document.querySelectorAll('.phone-numbers');
         allPhoneContainers.forEach(container => {
+            container.style.display = 'none';
+        });
+        
+        // When auto-detection runs, hide all language-based containers
+        const languageBasedContainers = document.querySelectorAll('.phone-numbers[data-lang]');
+        languageBasedContainers.forEach(container => {
             container.style.display = 'none';
         });
         
